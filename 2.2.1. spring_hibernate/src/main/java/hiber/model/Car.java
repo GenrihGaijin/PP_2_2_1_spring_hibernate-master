@@ -1,21 +1,32 @@
 package hiber.model;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name = "cars")
 public class Car {
-    private String model;
+    @Column(name = "model")
+private String model;
+    @Column(name = "series")
 private int series;
-private long id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "car_id")
+    private Long car_id;
 public Car(){}
     public Car(String model, int series){
     this.model=model;
     this.series=series;
     }
-    public long getId(){
-    return id;
+    public Long getId_car() {
+        return car_id;
     }
-    public void setId(long id){
-    this.id=id;
 
+    public void setId_car(Long car_id) {
+        this.car_id= car_id;
     }
+
+
     public String getModel() {
         return model;
     }

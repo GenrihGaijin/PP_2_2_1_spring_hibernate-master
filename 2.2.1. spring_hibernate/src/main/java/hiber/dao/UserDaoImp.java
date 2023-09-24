@@ -28,7 +28,7 @@ private SessionFactory sessionFactory;
       return query.getResultList();
    }
    public List<User> getUserByCar(String model, int series) {
-      String hQL = "from User user where user.empCar.model =: model and user.empCar.series =: series";
+      String hQL = "from User user where user.car.model =: model and user.car.series =: series";
       TypedQuery<User> typedQuery
               = sessionFactory.getCurrentSession().createQuery(hQL);
       typedQuery.setParameter("model", model).setParameter("series", series);
